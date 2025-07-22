@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>DCIS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/itcs1.png" height="55" width="35">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About Us</a></li>
+              <li class="scroll-to-section"><a href="#aahvan">Aahvan</a></li>
+              <li class="scroll-to-section"><a href="#zestech">Zestech</a></li>
+              <li class="scroll-to-section"><a href="#gallery">Gallery</a></li> 
+              <li class="scroll-to-section"><a href="#contact">Register</a></li> 
+              <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Contact Us</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h6>Welcome To</h6>
+                <h2>Department Of <span>Computer</span> and <span>Information Science<span></h2>
+                
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div id="slider">  
+                <div class="slides">  
+                  <img src="assets\images\g-1.jpg" width="100%" />
+                </div>
+                  
+               <div class="slides">  
+                  <img src="assets\images\g-2.jpg" width="100%" />
+                </div>
+                  
+                <div class="slides">  
+                  <img src="assets\images\g-3.jpg" width="100%" />
+                </div> 
+                  
+                <div class="slides">  
+                  <img src="assets\images\g-4.jpg" width="100%" />
+                </div> 
+                  
+                <div class="slides">  
+                  <img src="assets\images\g-5.jpg" width="100%" />
+                </div>  
+                  
+                
+                <div class="slides">  
+                  <img src="assets\images\g-6.jpg" width="100%" />
+                </div> 
+
+
+                  <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                 </div>
+              <script>
+                  var index = 0;
+                  var slides = document.querySelectorAll(".slides");
+                  var dot = document.querySelectorAll(".dot");
+
+                function changeSlide(){
+
+                if(index<0){
+                   index = slides.length-1;
+                 }
+  
+                if(index>slides.length-1){
+                  index = 0;
+                }
+
+                for(let i=0;i<slides.length;i++){
+                  slides[i].style.display = "none";
+                  dot[i].classList.remove("active");
+                }
+  
+                slides[index].style.display= "block";
+                 dot[index].classList.add("active");
+  
+                 index++;
+  
+                  setTimeout(changeSlide,2000);
+  
+                }
+
+              changeSlide();
+                </script>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="about" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2><em>About Us</em></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+              <div class="hidden-content">
+                <h4>AAHVAN</h4>
+                <p>With A Small Thought Of Technology In Mind, Department Initiated Techfest “AAHAVAN” In The Year 2019. The Aim And Sole Moto Was To Encourage And Motivate Our Junior College Students Towards The Of World Technology So That They Are Aware Of The Opportunities In Tech For Their Future.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/portfolio-image.png" alt="">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+              <div class="hidden-content">
+                <h4>ZESTECH</h4>
+                <p>ZESTECH An Inter-Collegiate Festival Organised By The Students Of Department Of IT/CS With A Unique Concept Of Create. Crack. Connect..The Intercollegiate Festival ‘Zestech’, A Cornucopia Of Sports And Technical Events Organized Every Year In The 3rd Week Of January. It Has Attracted A Huge Crowd Of About 800 Participants From 60 Colleges So Far At National Level. The Glimpse Of Various Technical Events Are Web Designing, Quiz (Tech Based), Group Coding, Neon TT(Table Tennis), Carrom, CS (Counter Strike) 1.6, FIFA 18, Snap Hunt, Car Racing, Think It, Human Ludo, Box Cricket, And Ground Events As Open Cricket, Rink Football And Tug Of War.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/portfolio-image.png" alt="">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="aahvan" class="our-blog section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2><span>AAHVAN</span></h2>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="right-list">
+            <ul>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2020-21</span>
+                  <p>The Department Has Organized An Inter-Collegiate Event, Aahvan , For The Junior College Students Of The Suburb On The 14th Of August 2019. This Is The First Time Such An Event Organized, And The Overwhelming Response From Different Colleges Is Motivating.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="a-1.jpg" alt=""></a>
+                </div>
+              </li>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2021-22</span>
+                  <p>Aahvan – A Tech Fest , Was Organized For 2 Days On 28th And 29th Of October 2020 For Jr. College Students With Events As Chess, Carrom, 8 Ball Pool And Call Of Duty With A Participation Of 101 Students Across Western Suburb Of Mumbai.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="a-2.jpg" alt=""></a>
+                </div>
+              </li>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2021-22</span>
+                  <p>On 3rd & 4th December 2021, Department Has Organized An Inter-Collegiate Event AAHVAN, For The Junior College Students Of The Suburb. Various Events Such As BGMI, 8 Ball Pool And Web Designing Were Organized With Approximate 200+ Participants Across The Suburb.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="a-3.jpg" alt=""></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="zestech" class="our-blog section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2><span>ZesTech</span></h2>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="right-list">
+            <ul>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2016-17</span>
+                  <p>It Was Organized On 4th And 5th Of January 2017 With Technical And Sports Events Where 15 Colleges Namely KES, Saraf, Nirmala To Name A Few Have Participated And Won Trophies And Cash Prizes. The Students Of FYCS From Our Own College Won The First Prize Trophy In "Best Project Exhibition".</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-1.png" alt=""></a>
+                </div>
+              </li>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2017-18</span>
+                  <p>Team Zestech Organized 16 Interesting, Competitive And Technical Events On 25th And 27th January, 2018. We Started Working For This Technical Fiesta From November 2017. About 100 Students Started On This Interesting Journey To Organize Zestech. Team Zestech Associated With A Total Of 8 Sponsors Who Were Equally Excited For The Festival, Viz. Glocal Kitchen, Oriflame, Ashish Holidays, And Manoj’s Krafting Ice-Cream Etc. The Glimpse Of Various Technical Events Are Web Designing, Quiz (Tech Based), Group Coding, Neon TT(Table Tennis), Carrom, CS (Counter Strike) 1.6, FIFA 18, Snap Hunt, Car Racing, Think It, Human Ludo, Box Cricket, Followed With Ground Events As Open Cricket, Rink Football And Tug Of War. A Whooping Of 255students From 43colleges Participated In 16 Of The Zestech Events. Out Of Which, L. S. Raheja College Was Awarded The Best Participating College Title Whose Students Sportingly Participated In A Truckload Of Events And Bagged Amazing Prices. Team Zestech Made It A Point To Greet Winners With Trophies, Certificates And Vouchers.
+</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-7.png" alt=""></a>
+                </div>
+              </li>
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2018-19</span>
+                  <p>Zestech Was Organised From 24th To 26th January 2019. The Event Started With An Opening DJ Night On 23rd Jan 2019 At Jagmohandas Gokaldas Auditorium. 250+ Students From Different Colleges Participated And Enjoyed DJ. The Event Was Inaugurated By Principal De. Ancy Jose. Zestech Witnessed Techshastra, Gamers Asylum, Sports And Brainstorm Events With More Than 20 Colleges Participated. VIVA College, Virar Declared To Be Best Participating College.
+</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-10.png" alt=""></a>
+                </div>
+              </li>
+			  <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2019-20</span>
+                  <p>ZESTECH, An Inter-Collegiate Festival Organized By The Department Of IT/CS Of Nagindas Khandwala College, Was Held From 22nd January To 26th January 2020 With The Theme Utopia Vs Dystopia. About 150 Students Started On This Interesting Journey To Organize Zestech. The Events Are Divided Into Tech Shashtra, Sports, And Gamers Asylum. The 4 Days Were Divided As Day 1(22nd Jan 2020) Was The Inauguration And Opening Night Principal Dr.(Mrs.) Ancy Jose Inaugurated The Event In Presence Of The Vice-Principals And Teachers. Day 2 (23rd Jan 2020) Consisted Of Both Ground Events Like Open Cricket And Rink Football And College Events Like Rubik’s Cube, Photography, Web Designing , And Group Coding. Day 3(24th Jan 2020) Consisted Of Ground Events Like Box Cricket And Badminton And Gaming Events In College Like Neon TT, CS GO, FIFA, PUBG. Day 4(25th Jan 2020) Had Fun Events Like Carrom, Human Ludo, War Of CLs And Followed By Valedictory. 694 Students From 70 Colleges Participated In Various Events Of Zestech. VIVA College Was Awarded As The Best Participating College. The Best CL Trophy For Getting Maximum Participation Was Also Won By The CL Sohan And ACL Rahul Of Viva College. Team Zestech Also Gave Exciting Vouchers Of Essel World And Universal Sports (Two Of Our Sponsors) To The Winners And Participants.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-11.png" alt=""></a>
+                </div>
+              </li>
+			  <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2020-21</span>
+                  <p>ZESTECH An Inter-Collegiate Festival Organised By The Students Of Department Of IT/CS. This Year It Was Organised From 20th January To 23rd January 2021. Total 150 + Participation From Across 40 Colleges. The Event Was Digitally Inaugurated By Our Respected Principal Dr Mrs Ancy Jose, Vice Principals Prof V.G Suchak, Prof Dr MoushumiDatta, Dr Mona Mehta, Coordinator Dr. Sindhu PM And Our Departmental Colleagues On 20th Jan 2021. Day 1 Of ZESTECH Witnessed The Solo Dance, Mandala Arts, Graphic Designing In Which More Than 20 Colleges Participated And It Was Fun And Learning Day Watching Enthusiastic Participants Performing Flawlessly On A Virtual Mode. Day 2 Of ZESTECH Had Carrom, Web Designing, Photography, CS GO, Call Of Duty. Day 3 Of ZESTECH Had Ludo, 8 Ball Pool, Group Coding, Quiz Valorant Followed By Valedictory Function. XAVIER INSTITUTE OF ENGINEERING,FORT Was The Best Participating College Of Zestech 2021 With Maximum Participation In Various Events.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-12.png" alt=""></a>
+                </div>
+				<li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i>2021-22</span>
+                  <p>ZESTECH, An Inter-Collegiate Festival Organized By The Department Of IT/CS Of Nagindas Khandwala College, Was Held From 17th January To 19th January 2022. “ Technovation – Think Different ” Was The Theme For The Event. The Events Were Categorized Under Three Categories – Gaming Zone, Productive Event And Technical Events. 200+ Students From 40 Colleges From Different States Viz., Gujarat, Madhya Pradesh, Ujjain To Name A Few Has Participated In Various Events Of Zestech. Universal MSG-SGKM College Of Arts, Science & Commerce, Ghatkopar East Was Awarded As The Best Participating College.</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="z-13.png" alt=""></a>
+                </div>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="gallery" class="our-blog section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2><span>Gallery</span></h2>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+        </div>
+      </div>
+      <div class="row">
+        
+		
+		
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+            <div class="phone-info">
+              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+            <div class="contact-dec">
+              <img src="assets/images/contact-decoration.png" alt="">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>©All Rights Reserved. 
+          
+          <br>Design:AtomOP</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/templatemo-custom.js"></script>
+
+</body>
+</html>

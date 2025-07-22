@@ -1,0 +1,59 @@
+<head>
+    <link rel="stylesheet" href="templatemo_562_space_dynamic\slider.css">
+</head>
+<div id="slider">  
+    <div class="slides">  
+      <img src="assets\images\g-1.jpg" width="100%" />
+    </div>
+      
+   <div class="slides">  
+      <img src="assets\images\g-2.jpg" width="100%" />
+    </div>
+      
+    <div class="slides">  
+      <img src="assets\images\g-3.jpg" width="100%" />
+    </div> 
+      
+    <div class="slides">  
+      <img src="assets\images\g-4.jpg" width="100%" />
+    </div> 
+      
+    <div class="slides">  
+      <img src="assets\images\g-5.jpg" width="100%" />
+    </div>  
+
+
+      <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+     </div>
+</div>
+<script>
+    var index = 0;
+    var slides = document.querySelectorAll(".slides");
+    var dot = document.querySelectorAll(".dot");
+
+  function changeSlide(){
+
+  if(index<0){
+     index = slides.length-1;
+   }
+
+  if(index>slides.length-1){
+    index = 0;
+  }
+
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+
+  slides[index].style.display= "block";
+   dot[index].classList.add("active");
+
+   index++;
+
+    setTimeout(changeSlide,2000);
+
+  }
+
+changeSlide();
+  </script>
