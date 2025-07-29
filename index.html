@@ -376,24 +376,6 @@
     </div>
   </div>
 </form>
-
-<script>
-  function redirectToGoogleForm(event) {
-    event.preventDefault();
-
-    const name = encodeURIComponent(document.getElementById('name').value);
-    const email = encodeURIComponent(document.getElementById('email').value);
-    const message = encodeURIComponent(document.getElementById('message').value);
-
-    // Replace these entry numbers with the correct ones from your Google Form
-    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeNRXqenqN6mgNmpXw9RM8Z8F5sHW1X1NbFz443u-iFccyTGA/viewform";
-    const params = `?entry.709963838=${name}&entry.64524033=${email}&entry.123456789=${message}`; // Adjust message entry ID
-
-    window.location.href = googleFormURL + params;
-    return false;
-  }
-</script>
-
             <div class="contact-dec">
               <img src="https://i.postimg.cc/1Xf0sDW5/contact-decoration.png" alt="">
             </div>
@@ -421,6 +403,21 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
+<script>
+  function redirectToGoogleForm(event) {
+    event.preventDefault();
 
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const message = encodeURIComponent(document.getElementById('message').value);
+
+    // Replace these entry numbers with the correct ones from your Google Form
+    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeNRXqenqN6mgNmpXw9RM8Z8F5sHW1X1NbFz443u-iFccyTGA/viewform";
+    const params = `?entry.709963838=${name}&entry.64524033=${email}&entry.123456789=${message}`; // Adjust message entry ID
+
+    window.location.href = googleFormURL + params;
+    return false;
+  }
+</script>
 </body>
 </html>
