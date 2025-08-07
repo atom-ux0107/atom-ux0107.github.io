@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Life Cycle & Road Map</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for advanced graph features -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 90%;
+            max-width: 1024px;
+            height: 90vh;
+            background-color: #2d3748; /* Dark slide background */
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.7s forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f3f4f6; /* Light text color */
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .slide-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+        }
+        .nav-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .nav-button:disabled {
+            background-color: #93c5fd;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: translateY(0);
+        }
+        #plc-chart-container {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            transition: height 0.5s ease;
+        }
+        #plc-chart-container.small {
+            height: 200px;
+        }
+        /* Style for content within slides */
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            text-align: left;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+        }
+        .list-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .list-item-icon {
+            flex-shrink: 0;
+            color: #60a5fa; /* Lighter blue icon */
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        .list-item-text {
+            font-size: 1.125rem;
+            color: #e5e7eb; /* Light text color */
+            line-height: 1.6;
+        }
+        .icon {
+            color: #60a5fa;
+        }
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem;
+            }
+            .slide-title {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .list-item-text {
+                font-size: 1rem;
+            }
+            .text-6xl {
+                font-size: 3rem;
+            }
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            #plc-chart-container {
+                height: 300px;
+            }
+            #plc-chart-container.small {
+                height: 150px;
+            }
+        }
+        .stage-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: stageEnter 0.5s forwards;
+            padding: 1.5rem;
+            background-color: #374151; /* Slightly darker card background */
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .stage-card.active {
+            display: block;
+        }
+        @keyframes stageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="slides-container" class="relative w-full h-full flex justify-center items-center">
+
+        <!-- Slide 1: Title Slide -->
+        <div id="slide-1" class="slide active">
+            <div class="slide-content text-center">
+                <h1 class="text-6xl font-extrabold text-blue-400 mb-4">Product Life Cycle & Road Map</h1>
+                <p class="text-2xl font-light text-gray-200">A strategic guide to product success</p>
+                <p class="text-lg font-normal text-gray-400 mt-4">- By Harsh Baria</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction to PLC -->
+        <div id="slide-2" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Introduction to Product Life Cycle</h2>
+                <ul class="text-xl text-gray-200 space-y-4 max-w-2xl">
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-line-chart text-blue-400 mr-4"><path d="M3 3v18h18"/><path d="m18 10-6 6-4-4-3 3"/></svg>The <strong>Product/Service Life Cycle</strong> (PLC) describes the stages a product goes through from introduction to decline.</li>
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket text-blue-400 mr-4"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m14 10-2 2"/><path d="M11.25 15.25 13 17l.25.25a2.12 2.12 0 0 1-1.42 1.42L9 18l-2 2 4.07-4.07a1.9 1.9 0 0 1 2.83 2.83l-1.42 1.42"/><path d="m16 4 2 2"/><path d="M21.5 12.5c1.26-1.5 5-2 5-2s-.5 3.74-2 5c-.84.71-2.13.7-2.91-.09a2.18 2.18 0 0 0-.09-2.91z"/><path d="m12 14 2-2"/></svg>Understanding these stages is crucial for making strategic business decisions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: PLC Graph and Stages -->
+        <div id="slide-3" class="slide">
+            <div class="w-full h-full p-8 flex flex-col items-center justify-center">
+                <h2 class="slide-title">The Four Stages of the Product Life Cycle</h2>
+                <div id="plc-chart-container">
+                    <canvas id="plc-chart"></canvas>
+                </div>
+                <!-- Stage details container -->
+                <div id="stage-details-container" class="mt-8 w-full max-w-2xl">
+                    <div id="stage-0" class="stage-card">
+                        <h3 class="text-2xl font-bold text-gray-200 mb-2 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up text-blue-400"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+                            1. Introduction Stage
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400">
+                            <li><strong>Characteristics:</strong> New product, slow sales growth, high marketing costs.</li>
+                            <li><strong>Focus:</strong> Building awareness, educating the market, and establishing a customer base.</li>
+                            <li><strong>Strategies:</strong> Heavy marketing, promotional activities, and setting introductory prices.</li>
+                        </ul>
+                    </div>
+                    <div id="stage-1" class="stage-card">
+                        <h3 class="text-2xl font-bold text-gray-200 mb-2 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up text-blue-400"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+                            2. Growth Stage
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400">
+                            <li><strong>Characteristics:</strong> Rapid sales increase, competitors may enter the market.</li>
+                            <li><strong>Focus:</strong> Expanding market share, improving features, and increasing distribution.</li>
+                            <li><strong>Strategies:</strong> Scaling production, enhancing features based on customer feedback.</li>
+                        </ul>
+                    </div>
+                    <div id="stage-2" class="stage-card">
+                        <h3 class="text-2xl font-bold text-gray-200 mb-2 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2 text-blue-400"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>
+                            3. Maturity Stage
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400">
+                            <li><strong>Characteristics:</strong> Sales growth slows; the market is saturated.</li>
+                            <li><strong>Focus:</strong> Maximizing profits, defending market share, and differentiating.</li>
+                            <li><strong>Strategies:</strong> Cost reduction, product enhancements, loyalty programs.</li>
+                        </ul>
+                    </div>
+                    <div id="stage-3" class="stage-card">
+                        <h3 class="text-2xl font-bold text-gray-200 mb-2 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize-2 text-blue-400"><polyline points="4 14 10 14 10 20"/><polyline points="14 10 14 4 20 4"/><line x1="10" x2="21" y1="14" y2="3"/><line x1="3" x2="14" y1="21" y2="10"/></svg>
+                            4. Decline & Withdrawal Stage
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400">
+                            <li><strong>Characteristics:</strong> Sales begin to fall due to market saturation or new innovations.</li>
+                            <li><strong>Focus:</strong> Managing declining sales or innovating to extend the life cycle.</li>
+                            <li><strong>Strategies:</strong> Reducing costs, finding niche markets, or developing a new product.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: What is a Product Road Map? -->
+        <div id="slide-4" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title flex items-center justify-center gap-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-line text-blue-400"><path d="M12 10.5v8"/><path d="M12 15.5v2"/><path d="M12 21c-3.1 0-7-2.6-7-7a7 7 0 0 1 7-7c3.1 0 7 2.6 7 7c0 4.4-4.2 7-7 7z"/><path d="M12 7a2 2 0 1 0 0 4a2 2 0 0 0 0-4z"/></svg> What is a Product Road Map?</h2>
+                <p class="text-xl text-gray-200 max-w-2xl text-center">A strategic plan that outlines the vision, direction, and progress of a product over time. It guides development and aligns all stakeholders.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Key Components of Road Map -->
+        <div id="slide-5" class="slide">
+            <div class="slide-content w-full px-4 md:px-0">
+                <h2 class="slide-title">Key Components of a Product Road Map</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-4xl">
+                    <div class="list-item">
+                        <span class="list-item-icon">💡</span>
+                        <div class="list-item-text">
+                            <strong>Vision & Strategy:</strong> Defines the long-term vision and alignment with company goals.
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-item-icon">🎯</span>
+                        <div class="list-item-text">
+                            <strong>Goals & Objectives:</strong> Sets specific, measurable targets like market share.
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-item-icon">📅</span>
+                        <div class="list-item-text">
+                            <strong>Timeline & Milestones:</strong> Outlines key phases for development and launch.
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-item-icon">✨</span>
+                        <div class="list-item-text">
+                            <strong>Features & Enhancements:</strong> Plans for new features to stay competitive.
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-item-icon">👂</span>
+                        <div class="list-item-text">
+                            <strong>Market Feedback:</strong> Incorporates customer feedback for product adjustments.
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-item-icon">💰</span>
+                        <div class="list-item-text">
+                            <strong>Budget & Resources:</strong> Allocates funds for each phase of the journey.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: The Synergy -->
+        <div id="slide-6" class="slide">
+            <div class="slide-content text-center max-w-3xl px-4 md:px-0">
+                <h2 class="slide-title">The Synergy Between PLC and Road Map</h2>
+                <p class="text-xl text-gray-200 mb-4">The <strong>Product Life Cycle</strong> is a framework for understanding where your product is.</p>
+                <p class="text-xl text-gray-200 mb-8">The <strong>Product Road Map</strong> is the strategic plan to navigate each stage of that life cycle.</p>
+                <div class="text-lg font-light text-gray-400">
+                    <p class="mb-2">e.g., During the <strong>Growth</strong> stage, the road map focuses on new features and distribution.</p>
+                    <p>e.g., In the <strong>Maturity</strong> stage, the road map might shift to minor enhancements to prevent <strong>Decline</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Conclusion -->
+        <div id="slide-7" class="slide">
+            <div class="slide-content text-center max-w-3xl">
+                <h2 class="slide-title">Conclusion: Why This Matters</h2>
+                <ul class="text-xl text-gray-200 space-y-4">
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 text-blue-400 mr-4"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Helps businesses make informed, data-driven decisions.</li>
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 text-blue-400 mr-4"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Ensures the product remains relevant and competitive.</li>
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 text-blue-400 mr-4"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Crucial for long-term success and customer value.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="absolute bottom-10 left-10 right-10 flex justify-between items-center">
+            <button id="prevBtn" class="nav-button" disabled>Previous</button>
+            <div id="page-indicator" class="text-lg font-semibold text-gray-400">1 of 7</div>
+            <button id="nextBtn" class="nav-button">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Get all slides and navigation buttons
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageIndicator = document.getElementById('page-indicator');
+        let currentSlide = 0;
+        let currentStage = -1; // -1 for no stage visible, 0-3 for each stage
+        let myChart = null;
+        
+        // Function to create the PLC graph
+        function createPLCChart() {
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const ctx = document.getElementById('plc-chart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Introduction', 'Growth', 'Maturity', 'Decline'],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [10, 80, 95, 20],
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        pointBackgroundColor: '#2563eb',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#2563eb',
+                        tension: 0.4,
+                        fill: 'start',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Sales',
+                                color: '#e5e7eb',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(229, 231, 235, 0.2)'
+                            },
+                            ticks: {
+                                color: '#e5e7eb'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time',
+                                color: '#e5e7eb',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(229, 231, 235, 0.2)'
+                            },
+                            ticks: {
+                                color: '#e5e7eb'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { size: 16 },
+                            bodyFont: { size: 14 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to show the current slide and update navigation
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = (index === slides.length - 1 && currentStage === 3);
+            pageIndicator.textContent = `${index + 1} of ${slides.length}`;
+            
+            // Special logic for the PLC graph slide
+            if (index === 2) {
+                nextBtn.disabled = false;
+                setTimeout(createPLCChart, 700);
+            } else {
+                currentStage = -1;
+                document.querySelectorAll('.stage-card').forEach(card => card.classList.remove('active'));
+                if (myChart) {
+                    myChart.destroy();
+                    myChart = null;
+                }
+            }
+        }
+
+        // Event listeners for navigation buttons
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide === 2 && currentStage < 3) {
+                // Make chart smaller
+                document.getElementById('plc-chart-container').classList.add('small');
+                if (myChart) myChart.resize();
+
+                // Animate to the next stage on the PLC slide
+                currentStage++;
+                document.querySelectorAll('.stage-card').forEach(card => card.classList.remove('active'));
+                document.getElementById(`stage-${currentStage}`).classList.add('active');
+                if (currentStage === 3) {
+                    nextBtn.disabled = false; // Enable next to proceed to the next slide
+                }
+            } else if (currentSlide < slides.length - 1) {
+                // Navigate to the next slide
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide === 2 && currentStage > -1) {
+                // Animate to the previous stage on the PLC slide
+                document.getElementById(`stage-${currentStage}`).classList.remove('active');
+                currentStage--;
+                nextBtn.disabled = false;
+                
+                if (currentStage === -1) {
+                    // Make chart big again
+                    document.getElementById('plc-chart-container').classList.remove('small');
+                    if (myChart) myChart.resize();
+                }
+            } else if (currentSlide > 0) {
+                // Navigate to the previous slide
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initially show the first slide
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
