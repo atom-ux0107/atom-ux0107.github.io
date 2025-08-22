@@ -83,67 +83,63 @@
               </div>
             </div>
             <div class="col-lg-6">
-              <div id="slider">  
-                <div class="slides">  
-                  <img src="https://i.postimg.cc/9Fm1NqPS/g-1.jpg" width="100%" />
-                </div>
-                  
-               <div class="slides">  
-                  <img src="https://i.postimg.cc/5NspcNnt/g-2.jpg" width="100%" />
-                </div>
-                  
-                <div class="slides">  
-                  <img src="https://i.postimg.cc/T3S9wN8M/g-3.jpg" width="100%" />
-                </div> 
-                  
-                <div class="slides">  
-                  <img src="https://i.postimg.cc/rmGCf8DM/g-4.jpg" width="100%" />
-                </div> 
-                  
-                <div class="slides">  
-                  <img src="https://i.postimg.cc/k5bytN9V/g-5.jpg" width="100%" />
-                </div>  
-                  
-                
-                <div class="slides">  
-                  <img src="https://i.postimg.cc/Dwm67kMP/g-6.jpg" width="100%" />
-                </div> 
+  <div id="slider">  
+    <div class="slides">  
+      <img src="https://i.postimg.cc/9Fm1NqPS/g-1.jpg" width="546" height="563" />
+    </div>
+      
+    <div class="slides">  
+      <img src="https://i.postimg.cc/5NspcNnt/g-2.jpg" width="546" height="563" />
+    </div>
+      
+    <div class="slides">  
+      <img src="https://i.postimg.cc/T3S9wN8M/g-3.jpg" width="546" height="563" />
+    </div> 
+      
+    <div class="slides">  
+      <img src="https://i.postimg.cc/rmGCf8DM/g-4.jpg" width="546" height="563" />
+    </div> 
+      
+    <div class="slides">  
+      <img src="https://i.postimg.cc/k5bytN9V/g-5.jpg" width="546" height="563" />
+    </div>  
+      
+    <div class="slides">  
+      <img src="https://i.postimg.cc/Dwm67kMP/g-6.jpg" width="546" height="563" />
+    </div> 
 
+    <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  </div>
+  <script>
+    var index = 0;
+    var slides = document.querySelectorAll(".slides");
+    var dot = document.querySelectorAll(".dot");
 
-                  <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                 </div>
-              <script>
-                  var index = 0;
-                  var slides = document.querySelectorAll(".slides");
-                  var dot = document.querySelectorAll(".dot");
-
-                function changeSlide(){
-
-                if(index<0){
-                   index = slides.length-1;
-                 }
+    function changeSlide(){
+      if(index < 0){
+        index = slides.length - 1;
+      }
   
-                if(index>slides.length-1){
-                  index = 0;
-                }
+      if(index > slides.length - 1){
+        index = 0;
+      }
 
-                for(let i=0;i<slides.length;i++){
-                  slides[i].style.display = "none";
-                  dot[i].classList.remove("active");
-                }
+      for(let i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";
+        dot[i].classList.remove("active");
+      }
   
-                slides[index].style.display= "block";
-                 dot[index].classList.add("active");
+      slides[index].style.display = "block";
+      dot[index].classList.add("active");
   
-                 index++;
+      index++;
   
-                  setTimeout(changeSlide,2000);
-  
-                }
+      setTimeout(changeSlide, 2000);
+    }
 
-              changeSlide();
-                </script>
-            </div>    
+    changeSlide();
+  </script>
+</div>    
           </div>
         </div>
       </div>
@@ -422,4 +418,5 @@
 </script>
 </body>
 </html>
+
 
