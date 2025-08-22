@@ -971,11 +971,11 @@ Banner Style
 
 /* 
 ---------------------------------------------
-About Us Style
+ Us Style
 --------------------------------------------- 
 */
 
-#about {
+# {
   margin-top: 0px;
 }
 
@@ -1135,7 +1135,7 @@ Portfolio
 }
 
 .our-portfolio .item:hover .showed-content {
-  top: 90px;
+  top: 120px;
 }
 
 .our-portfolio .hidden-content {
@@ -1671,4 +1671,5 @@ responsive
   }
 
 }
+
 
