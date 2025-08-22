@@ -976,7 +976,7 @@ About Us Style
 */
 
 #about {
-  margin-top: 120px;
+  margin-top: 0px;
 }
 
 .about-us {
@@ -1669,4 +1669,5 @@ responsive
     margin:10px 0px;
   
   }
+
 }
